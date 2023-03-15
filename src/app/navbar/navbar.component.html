@@ -1,9 +1,10 @@
 <nav>
   <ul>
     <li><a routerLink="/">Accueil</a></li>
-    <li><a routerLink="/about">Mes modules</a></li>
-    <li><a routerLink="/about">Contacts</a></li>
+    <li *ngIf="isLogged"><a routerLink="/about">Mes modules</a></li>
+    <li *ngIf="isLogged"><a routerLink="/about">Contacts</a></li>
     <li><a routerLink="/about">Langues</a></li>
   </ul>
-  <button>Connexion</button>
+  <button *ngIf="!isLogged" ><a href="login">Connexion</a></button>
+  <button *ngIf="isLogged" (click)="logOut()">Deconnexion</button>
 </nav>

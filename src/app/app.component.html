@@ -310,20 +310,5 @@
     </svg>
   </a>
 </div>-->
-<div class="content" role="main" >
-  <div *ngIf="!loggedIn">
-    <div  id="g_id_onload"
-         data-client_id="657403735836-b6um1ucm1dsi975esd5e7vlr3n00g2lp.apps.googleusercontent.com"
-         data-callback="handleCredentialResponse">
-    </div>
-  </div>
-<!-- -->
-  <div class="g_id_signin" data-type="standard"></div>
-<div *ngIf="loggedIn">
-  <img src="{{ user.photoUrl }}">
-  <div>
-    <h4>{{ user.name }}</h4>
-    <p>{{ user.email }}</p>
-  </div>
-</div>
-</div>
+
+<router-outlet></router-outlet>
