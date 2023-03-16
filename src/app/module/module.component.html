@@ -1,0 +1,39 @@
+<div class="container">
+    <p>
+        Vous êtes connecté en tant que : {{ fullName }}
+    </p>
+    <div class="row" *ngIf="!send">
+
+        <div class="col-6">
+            <form>
+                <input required placeholder="Saisir le lien google sheet" class="form-control" type="text" name="lienApi"><br/>
+                <input  (click)="getModules()"  class="btn btn-secondary" value="Enregistrer">
+            </form>
+        </div>
+
+    </div>
+    <div class="row" *ngIf="send">
+
+        <div class="col-12">
+            <table class="table-bordered">
+                <tr>
+                    <th>Code module</th>
+                    <th>Libellé</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                </tr>
+                <tr *ngFor="let module of modules ">
+                    <td>{{module.codeModule}}</td>
+                    <td>{{module.nom}}</td>
+                    <td>{{module.libelle}}</td>
+                    <td><img src="{{module.image}}" alt=""></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+
+

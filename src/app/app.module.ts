@@ -6,11 +6,19 @@ import { AppComponent } from './app.component';
 import {GoogleLoginProvider, SocialAuthServiceConfig} from "@abacritt/angularx-social-login";
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from "@angular/common/http";
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { ModuleComponent } from './module/module.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+
+    NavbarComponent,
+    LoginComponent,
+    HomeComponent,
+    ModuleComponent,
   ],
   imports: [
     BrowserModule,

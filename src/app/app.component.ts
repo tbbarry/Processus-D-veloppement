@@ -16,11 +16,6 @@ export class AppComponent {
   constructor(private  authService: SocialAuthService, private http: HttpClient) {
   }
   ngOnInit() {
-    gapi.load('auth2', () => {
-      gapi.auth2.init({
-        client_id: '657403735836-b6um1ucm1dsi975esd5e7vlr3n00g2lp.apps.googleusercontent.com'
-      });
-    });
     this.authService.authState.subscribe((user) => {
       this.user = user;
       this.loggedIn = (user != null);
