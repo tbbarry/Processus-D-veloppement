@@ -36,7 +36,7 @@ export class LoginComponent {
       this.authService.userSessionSubject.next(this.user.fullName);
       console.log(this.user);
       this.zone.run(() => {
-        this.router.navigate(["/modules"]);
+        this.router.navigate(["/programme"]);
       })
 
     }

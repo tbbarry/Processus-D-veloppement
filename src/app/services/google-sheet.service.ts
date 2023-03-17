@@ -8,10 +8,16 @@ import {HttpClient} from "@angular/common/http";
 export class GoogleSheetService {
 
   constructor(public  http: HttpClient) { }
-  public getData(): Observable<any> {
+  public getData(lien: string): Observable<any> {
     let sheetno = "0"
-    let sheetid = "1QBsiZOOH-PoN48SRiQ8NbZclalhYVJ_9mepxARroLBg"
-    const url = 'https://sheets.googleapis.com/v4/spreadsheets/'+sheetid+ '?key=AIzaSyA-ZOBsuijsNNMVlOju9-bh-KctqGa-wjw&includeGridData=true';
+    const url = 'https://sheets.googleapis.com/v4/spreadsheets/'+lien+ '?key=AIzaSyA-ZOBsuijsNNMVlOju9-bh-KctqGa-wjw&includeGridData=true';
+
+    return this.http.get(url);
+
+  }
+  public getProgrammes(lien: string): Observable<any> {
+    let sheetno = "0"
+    const url = 'https://sheets.googleapis.com/v4/spreadsheets/'+lien+ '?key=AIzaSyA-ZOBsuijsNNMVlOju9-bh-KctqGa-wjw&includeGridData=true';
 
     return this.http.get(url);
 

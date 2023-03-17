@@ -2,16 +2,6 @@
     <p>
         Vous êtes connecté en tant que : {{ fullName }}
     </p>
-    <div class="row" *ngIf="!send">
-
-        <div class="col-6">
-            <form>
-                <input required placeholder="Saisir le lien google sheet" class="form-control" type="text" name="lienApi"><br/>
-                <input  (click)="getModules()"  class="btn btn-secondary" value="Enregistrer">
-            </form>
-        </div>
-
-    </div>
     <div class="row" *ngIf="send">
 
         <div class="col-12">

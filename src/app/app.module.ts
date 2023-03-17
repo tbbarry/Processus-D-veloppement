@@ -9,6 +9,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { ModuleComponent } from './module/module.component';
+import { ProgrammeComponent } from './programme/programme.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -19,11 +21,14 @@ import { ModuleComponent } from './module/module.component';
     LoginComponent,
     HomeComponent,
     ModuleComponent,
+    ProgrammeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
