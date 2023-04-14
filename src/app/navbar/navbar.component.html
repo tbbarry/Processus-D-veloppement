@@ -1,9 +1,11 @@
 <nav>
   <ul>
     <li><a routerLink="/">Accueil</a></li>
-    <li><a routerLink="/about">Mes modules</a></li>
-    <li><a routerLink="/about">Contacts</a></li>
+    <li *ngIf="isLogged"><a routerLink="programme">Programmes</a></li>
+    <li *ngIf="isLogged"><a routerLink="modules">Modules</a></li>
+    <li *ngIf="isLogged"><a routerLink="/about">Contacts</a></li>
     <li><a routerLink="/about">Langues</a></li>
   </ul>
-  <button>Connexion</button>
+  <button *ngIf="!isLogged" ><a style="color: white" href="login">Connexion</a></button>
+  <button *ngIf="isLogged" ><a style="color: white" href="login">Deconnexion </a></button>
 </nav>
