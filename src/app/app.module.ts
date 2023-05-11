@@ -11,17 +11,20 @@ import { LoginComponent } from './login/login.component';
 import { ModuleComponent } from './module/module.component';
 import { ProgrammeComponent } from './programme/programme.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ExerciceComponent} from "./exercice/exercice.component";
+import {DetailsComponent} from "./exercice/details/detailsComponent";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     NavbarComponent,
     LoginComponent,
     HomeComponent,
     ModuleComponent,
     ProgrammeComponent,
+    ExerciceComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

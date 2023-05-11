@@ -1,8 +1,8 @@
 <div class="container">
-    <p>
+    <p *ngIf="!send">
         Vous êtes connecté en tant que : {{ fullName }}
     </p>
-    <div class="row" *ngIf="!send">
+    <div class="row" *ngIf="!send && show">
 
         <div class="col-6">
             <form [formGroup]="lienForm" (ngSubmit)="onSubmit(lienForm)" >
@@ -12,25 +12,30 @@
         </div>
 
     </div>
-    <div class="row" *ngIf="send">
-
-        <div class="col-12">
-            <table class="table-bordered">
-                <tr>
-                    <th>Entreprise</th>
-                    <th>Programme</th>
-                    <th>Logo</th>
-                    <th>Lien</th>
-                </tr>
-                <tr *ngFor="let programme of programmes ">
-                    <td>{{programme.entreprise}}</td>
-                    <td>{{programme.programme}}</td>
-                    <td><img src="{{programme.logo}}" alt=""></td>
-                    <td  (click)="showModules(programme.lien)"><span style="color:blue; cursor: pointer; text-decoration: underline">{{programme.lien}}</span></td>
-                </tr>
-            </table>
+    <div class="col-12" *ngIf="send" style="margin-top: 50px">
+        <div class="col-6 offset-3">
+            <h4>Bonjour {{ fullName }}</h4>
+            <h5>Voici la liste des programmes auxquels vous avez accès</h5>
         </div>
+        <div class = "row">
+            <div *ngFor="let programme of programmes"  class = "col-sm-6 col-md-4"  (click)="showModules(programme.lien)">
+              <div style="margin: 1px" class="card">
+                  <div class = "thumbnail" style="margin: 2px" >
+                      <img width="250" height="250" src ="{{programme.logo}}" alt = "Generic placeholder thumbnail">
+                  </div>
+                  <div class = "caption" style="margin: 5px">
+                      <h3>{{programme.entreprise}}</h3>
+                      <p>{{programme.programme}}</p>
 
+                      <p>
+                          <a  (click)="showModules(programme.lien)"  class = "btn btn-primary" role = "button">
+                              Voir les modules
+                          </a>
+                      </p>
+                  </div>
+              </div>
+            </div>
+        </div>
     </div>
 </div>
 

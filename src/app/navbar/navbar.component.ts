@@ -12,6 +12,7 @@ import {NgZone} from '@angular/core';
 export class NavbarComponent {
 
   isLogged = false;
+  fullName: string = "";
    constructor(public  authservice: AuthServiceService, public  router: Router, public zone: NgZone) {
      this.authservice.userConnected$.subscribe((res) => {
        this.isLogged = res;
@@ -23,6 +24,10 @@ export class NavbarComponent {
        this.isLogged = res;
        console.log(res);
      })
+        this.authservice.userSession.subscribe((res: any) => {
+            this.fullName = res;
+            console.log(this.fullName);
+        });
    }
    logOut() {
      this.authservice.userConnectedSubject.next(false);

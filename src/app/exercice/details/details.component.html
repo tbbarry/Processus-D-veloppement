@@ -1,0 +1,38 @@
+<div class="container">
+<div class="row" style="margin-top: 50px">
+    <div class="center col-6 offset-3">
+        <h3>{{exercices[0].titre}}</h3>
+        <p>{{exercices[0].description}}</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%" [attr.aria-valuenow]="value" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+    </div>
+</div>
+ <div class="row" style="margin-top: 50px">
+     <div class="col-4">
+         <p>Début prévu: {{exercices[0].dateDebutPrevue}}</p>
+         <p>Début réel: {{exercices[0].dateDebutReelle}}</p>
+     </div>
+     <div class="col-4">
+         <p>Fin prévu: {{exercices[0].dateDebutPrevue}}</p>
+         <p>Fin réel: {{exercices[0].dateDebutReelle}}</p>
+     </div>
+     <div class="col-4">
+             <button  *ngIf="exercices[0].etat == 0" class="btn btn-success">Débuter l'exercice</button>
+             <button  *ngIf="exercices[0].etat && exercices[0].etat < 10 && exercices[0].etat>0"class="btn btn-success">Terminé l'exercice</button>
+     </div>
+ </div>
+ <div class="row">
+     <div class="col-8 offset-2">
+         <p>Commentaire du coach: <br> {{exercices[0].commentaireCoach}}</p>
+         <label>Laisser un commentaire sur cet exercice à votre</label>
+         <textarea class="form-control" placeholder="Votre commentaire">
+         </textarea>
+         <br>
+         <button class="btn btn-info">Envoyer</button>
+     </div>
+ </div>
+<div class="row">
+
+</div>
+</div>

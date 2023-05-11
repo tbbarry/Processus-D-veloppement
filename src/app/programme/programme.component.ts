@@ -7,6 +7,7 @@ import {GoogleSheetService} from "../services/google-sheet.service";
 import {Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
+
 @Component({
   selector: 'app-programme',
   templateUrl: './programme.component.html',
@@ -19,6 +20,8 @@ export class ProgrammeComponent {
   lienForm: FormGroup = new FormGroup({});
   programmes: Programme[] = [];
   send = false;
+  firstLogin = false;
+  show = true;
   ngOnInit() {
     this.initForm();
   }
@@ -29,8 +32,12 @@ export class ProgrammeComponent {
       console.log(this.fullName);
     });
 
+    if (localStorage.getItem("lien")) {
+      this.getProgrammes(localStorage.getItem("lien"))
+
+    }
   }
-  getProgrammes (id: string) {
+  getProgrammes (id: any) {
     this.googleService.getProgrammes(id).subscribe((res) => {
       let rowData1 = res.sheets[1].data[0].rowData;
       for (let i=1; i< rowData1.length; i++) {
@@ -39,6 +46,7 @@ export class ProgrammeComponent {
         this.programmes.push(new Programme(values[0].formattedValue, values[1].formattedValue, values[2].formattedValue, values[3].formattedValue));
         console.log(this.programmes);
       }
+      localStorage.setItem("lien", id)
       this.send = true;
     });
   }

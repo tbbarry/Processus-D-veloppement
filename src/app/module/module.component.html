@@ -1,26 +1,32 @@
 <div class="container">
-    <p>
-        Vous êtes connecté en tant que : {{ fullName }}
-    </p>
-    <div class="row" *ngIf="send">
-
-        <div class="col-12">
-            <table class="table-bordered">
-                <tr>
-                    <th>Code module</th>
-                    <th>Libellé</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                </tr>
-                <tr *ngFor="let module of modules ">
-                    <td>{{module.codeModule}}</td>
-                    <td>{{module.nom}}</td>
-                    <td>{{module.libelle}}</td>
-                    <td><img src="{{module.image}}" alt=""></td>
-                </tr>
-            </table>
+    <div class="col-12" style="margin-top: 50px">
+        <div class="row">
+            <div class="col-8">
+                <h3 class="center">Liste des modules disponibles</h3>
+            </div>
+            <div class="col-4">
+                <input  (keyup)="onSearch($event)" placeholder="Rechercher un module" type="text" class="form-control">
+            </div>
         </div>
-
+        <hr>
+        <div class = "row">
+            <div *ngFor="let module of modules"  class = "col-sm-6 col-md-4" (click)="showExercice(module.codeModule)">
+               <div class="card" style="margin: 1px">
+                   <div class="card-header">
+                       <h4 class="card-title">
+                           {{module.nom}}
+                       </h4>
+                   </div>
+                   <div class="card-body">
+                       <img width="150" height="150" src="{{module.image}}" alt="">
+                       <p>{{module.libelle}}</p>
+                   </div>
+                   <div class="card-footer">
+                       <button (click)="showExercice(module.codeModule) " class="btn btn-success">Voir les exercices</button>
+                   </div>
+               </div>
+            </div>
+        </div>
     </div>
 </div>
 

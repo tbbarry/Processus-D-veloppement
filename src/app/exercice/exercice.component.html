@@ -1,0 +1,27 @@
+<div class="container">
+<div class="row" style="margin-top: 50px">
+    <div class="center col-6 offset-3">
+        <h3>{{modules[0].nom}}</h3>
+        <H4 class="lead">Liste des exercices disponibles</H4>
+    </div>
+</div>
+ <div class="row">
+     <div class="col-3" *ngFor="let exercice of exercices" (click)="showDetails(exercice.titre)">
+         <div class="card" (click)="showDetails(exercice.titre)">
+             <div class="card-body">
+                 <h5 class="card-title">{{exercice.titre}}</h5>
+                 <p class="card-text">{{exercice.description}}</p>
+                 <p><span *ngIf="exercice.etat == 0" class="badge bg-info">A faire</span></p>
+                 <p><span *ngIf="exercice.etat == 10" class="badge bg-success">Terminé</span></p>
+                 <p><span *ngIf="exercice.etat && exercice.etat < 10 && exercice.etat>0" class="badge bg-success">En cours</span></p>
+                 <a  (click)="showDetails(exercice.titre)" class="btn btn-primary">Plus de détails</a>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+
+
+
+
+
