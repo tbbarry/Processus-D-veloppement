@@ -4,10 +4,10 @@
     </p>
     <div class="row" *ngIf="!send && show">
 
-        <div class="col-6">
+        <div class="col-6 offset-3">
             <form [formGroup]="lienForm" (ngSubmit)="onSubmit(lienForm)" >
                 <input formControlName="lien" id="lien" placeholder="Saisir le lien google sheet" class="form-control" type="text" name="lienApi"><br/>
-                <input type="submit"  class="btn btn-secondary" value="Enregistrer">
+                <input type="submit"  class="btn btn-secondary" value="Acceder aux programmes">
             </form>
         </div>
 

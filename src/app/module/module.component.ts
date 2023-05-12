@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {GoogleSheetService} from "../services/google-sheet.service";
 import {Programme} from "../entity/programme";
 import {ActivatedRoute, Router} from "@angular/router";
+import {LocationStrategy} from "@angular/common";
 
 @Component({
   selector: 'app-module',
@@ -18,7 +19,13 @@ export class ModuleComponent {
   programmes: Programme[] = [];
   send = false;
   lien: string ="";
-  constructor(public authService: AuthServiceService, public httpClient: HttpClient, public googleService: GoogleSheetService, public activeRoute: ActivatedRoute,public router: Router, public zone: NgZone) {
+  constructor(public authService: AuthServiceService,
+              public httpClient: HttpClient,
+              public back: LocationStrategy,
+              public googleService: GoogleSheetService,
+              public activeRoute: ActivatedRoute,
+              public router: Router,
+              public zone: NgZone) {
     this.authService.userSession.subscribe((res: any) => {
       console.log("utilisateur");
       this.fullName = res;
