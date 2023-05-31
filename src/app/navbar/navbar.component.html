@@ -3,7 +3,7 @@
     <li><a routerLink="/">Accueil</a></li>
     <li *ngIf="isLogged"><a routerLink="programme">Programmes</a></li>
     <li *ngIf="isLogged"><a routerLink="/about">Contacts</a></li>
-    <li><a routerLink="/about">Langues</a></li>
+    <li><a routerLink="/programme">Langues</a></li>
   </ul>
   <p>{{fullName ? fullName: ""}}</p>
   <button *ngIf="!isLogged" ><a style="color: white" href="login">Connexion</a></button>

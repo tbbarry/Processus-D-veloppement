@@ -6,11 +6,13 @@ import {ModuleComponent} from "./module/module.component";
 import {ProgrammeComponent} from "./programme/programme.component";
 import {ExerciceComponent} from "./exercice/exercice.component";
 import {DetailsComponent} from "./exercice/details/detailsComponent";
+import {CoachComponent} from "./coach/coach.component";
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "home", component: HomeComponent},
   {path: "programme", component: ProgrammeComponent},
+  {path: "about", component: CoachComponent},
   {path: "modules/:lien", component: ModuleComponent},
   {path: "", component: HomeComponent},
   {path: "exercices/:lien/:codeModule", component: ExerciceComponent},
