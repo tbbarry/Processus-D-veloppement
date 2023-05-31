@@ -80,4 +80,9 @@ export class DetailsComponent {
 
   }
 
+  endExercice(codeModule: string) {
+    this.googleService.updateData(this.lien, 'A10', 'Essai').subscribe((res) => {
+      console.log(res);
+    })
+  }
 }

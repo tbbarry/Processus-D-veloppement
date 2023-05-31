@@ -19,7 +19,7 @@
      </div>
      <div class="col-4">
              <button  *ngIf="exercices[0].etat == 0" class="btn btn-success">Débuter l'exercice</button>
-             <button  *ngIf="exercices[0].etat && exercices[0].etat < 10 && exercices[0].etat>0"class="btn btn-success">Terminé l'exercice</button>
+             <button (click)="endExercice(exercices[0].codeModule)"  *ngIf="exercices[0].etat && exercices[0].etat < 10 && exercices[0].etat>0"class="btn btn-success">Terminé l'exercice</button>
      </div>
  </div>
  <div class="row">

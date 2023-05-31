@@ -32,6 +32,8 @@ export class LoginComponent {
       this.user.firstName = responsePayload.given_name;
       this.user.lastName = responsePayload.family_name;
       this.user.fullName = responsePayload.name;
+      console.log(responsePayload)
+      localStorage.setItem("Token", responsePayload);
       this.authService.userConnectedSubject.next(true);
       this.authService.userSessionSubject.next(this.user.fullName);
       console.log(this.user);
